@@ -1,7 +1,7 @@
 import * as React from 'react'
-import Link from 'next/link';
+import Link from 'next/link'
 
-const Home = ({blogs}) => {
+const Home = ({ blogs }) => {
   return (
     <div>
       <h2>最新の記事</h2>
@@ -22,24 +22,21 @@ const Home = ({blogs}) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
 export const getStaticProps = async () => {
   const key = {
-    headers: {'X-API-KEY': process.env.API_KEY},
-  };
-  const res = await fetch(
-    `https://ydaydada.microcms.io/api/v1/blogs/`,
-    key,
-  );
-  const data = await res.json();
+    headers: { 'X-API-KEY': process.env.API_KEY },
+  }
+  const res = await fetch('https://ydaydada.microcms.io/api/v1/blogs/', key)
+  const data = await res.json()
 
   return {
     props: {
       blogs: data.contents,
-    }
+    },
   }
-};
+}
 
-export default Home;
+export default Home

@@ -1,0 +1,37 @@
+---
+env:
+ node: true
+ browser: true
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/eslint-recommended
+  - plugin:@typescript-eslint/recommended
+  - prettier/@typescript-eslint
+  - prettier
+rules:
+  "@typescript-eslint/explicit-function-return-type": off
+  "@typescript-eslint/explicit-module-boundary-types": off
+  "@typescript-eslint/no-explicit-any": off
+  "@typescript-eslint/no-unused-vars": off
+  "@typescript-eslint/no-empty-function": off
+  "@typescript-eslint/no-empty-interface": off
+  "@typescript-eslint/ban-ts-comment": off
+  "@typescript-eslint/ban-types": off
+  "@typescript-eslint/no-var-requires": off
+  prefer-rest-params: off
+  no-empty-pattern: off
+  no-var: off
+  semi: [error, never]
+  quotes: [error, single]
+  arrow-parens: [error, as-needed]
+  comma-dangle: [error, only-multiline]
+plugins:
+  - '@typescript-eslint'
+parser: '@typescript-eslint/parser'
+parserOptions:
+  sourceType: module
+  project: ./tsconfig.json
+ignorePatterns:
+  - '@types/*'
+  - server/**/*
+  - next.config.js
